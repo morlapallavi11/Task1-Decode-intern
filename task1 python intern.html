@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>My To Do List</title>
+
+<style>
+
+body{
+font-family: Arial;
+background:#f5f7f2;
+text-align:center;
+}
+
+.container{
+background:white;
+width:300px;
+margin:80px auto;
+padding:20px;
+border-radius:10px;
+}
+
+h2{
+color:#5a7d6a;
+}
+
+input{
+padding:8px;
+width:60%;
+}
+
+button{
+padding:8px;
+background:#7fb77e;
+color:white;
+border:none;
+}
+
+ul{
+list-style:none;
+padding:0;
+}
+
+li{
+background:#eef3ea;
+margin:5px;
+padding:8px;
+}
+
+.delete{
+background:#e57373;
+margin-left:10px;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<h2>My To Do List</h2>
+
+<input type="text" id="task">
+<button onclick="addTask()">Add</button>
+
+<ul id="list"></ul>
+
+</div>
+
+<script>
+
+function addTask(){
+
+var task=document.getElementById("task").value;
+
+if(task==""){
+alert("Enter a task");
+return;
+}
+
+var li=document.createElement("li");
+li.innerHTML=task + " <button class='delete' onclick='deleteTask(this)'>Delete</button>";
+
+document.getElementById("list").appendChild(li);
+
+document.getElementById("task").value="";
+}
+
+function deleteTask(btn){
+btn.parentElement.remove();
+}
+
+</script>
+
+</body>
+</html>
